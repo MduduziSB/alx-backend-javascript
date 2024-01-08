@@ -1,4 +1,9 @@
 export default function getStudentsByLocation(originalArr, city) {
-  const sameCity = originalArr.filter((student) => student.location === city);
+  let sameCity = [];
+  if (!(sameCity instanceof Array)) {
+    return sameCity;
+  }
+
+  sameCity = originalArr.filter((student) => student.location === city);
   return sameCity;
 }
