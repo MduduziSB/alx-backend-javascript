@@ -11,12 +11,12 @@ const countStudents = (path) => {
       if (err) {
         reject(new Error('Cannot load the database'));
       } else {
-        const lines = data.trim().split('\n').filter(line => line.trim() !== '');
+        const lines = data.trim().split('\n').filter((line) => line.trim() !== '');
 
         const studentGroups = {};
         const fieldNames = lines.shift().split(',');
 
-        lines.forEach(line => {
+        lines.forEach((line) => {
           const [firstName, lastName, age, field] = line.split(',');
           if (!(firstName === 'firstname' || lastName === 'lastname' || age === 'age' || field === 'field')) {
             studentGroups[field] = studentGroups[field] || { count: 0, names: [] };
@@ -28,7 +28,7 @@ const countStudents = (path) => {
         const totalCount = lines.length;
         const result = {
           totalCount,
-          studentGroups
+          studentGroups,
         };
         resolve(result);
       }
