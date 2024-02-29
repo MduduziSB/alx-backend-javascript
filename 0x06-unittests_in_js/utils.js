@@ -1,5 +1,5 @@
 const Utils = {
-  calculateNumber(type, a, b) => {
+  calculateNumber: (type, a, b) => {
     if (type === 'SUM') {
       return Math.round(a) + Math.round(b);
     }
@@ -10,7 +10,7 @@ const Utils = {
 
     if (type === 'DIVIDE') {
       if (Math.round(b) === 0) {
-	return 'Error';
+        return 'Error';
       }
       return Math.round(a) / Math.round(b);
     }
