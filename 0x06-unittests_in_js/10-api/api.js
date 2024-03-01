@@ -10,7 +10,7 @@ app.get('/cart/:id([0-9]+)', (request, response) => {
     response.send(`Payment methods for cart ${request.params.id}`);
 });
 
-app.get('/available_payments', (_, res) => {
+app.get('/available_payments', (_req, res) => {
   res.json({
     payment_methods: {
       credit_cards: true,
@@ -20,8 +20,13 @@ app.get('/available_payments', (_, res) => {
 });
 
 app.post('/login', (req, res) => {
-  const { userName } = req.body;
-  res.send(`Welcome ${userName}`);
+  let username = '';
+
+  if (req.body) {
+    username = req.body.userName;
+  }
+
+  res.send(`Welcome ${username}`);
 });
 
 app.listen(port, () => {
